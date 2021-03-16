@@ -1,0 +1,56 @@
+.tabuleiro{
+    background-color: #FFFAFA;
+    font-size: 220%;
+    color: gainsboro;
+    width: 60%;
+    height: 100%;
+   
+    text-align: center;
+}
+.celula{
+    height: 3em;
+    font-size: 130%;
+    color:black;
+    /* height: 120px; */
+    
+    /* transform: translate(-50%, -50%) */
+}
+
+.simolo{
+    top:50%;
+    height: 40%;
+}
+.menu{
+    /* background:; */
+    width: 10%;
+    /* background: darkgrey; */
+    text-shadow: cyan;
+    font-size: 150%;
+    margin-left: 40px;
+}
+
+.submenu{
+    height: 15%;
+}
+
+#submenuVelhasdiv{
+    margin-top: 1%;
+    
+    
+}
+
+#vezMenu1div{
+  
+     width: 90%;
+     
+
+ }
+#vezMenu2div{
+    width: 90%;
+}
+
+#submenuVelhas{
+    font-size: 2.5em;
+    margin: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

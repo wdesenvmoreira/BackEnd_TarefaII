@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./favicon.ico">
+
+  <title>Jogo da velha</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./starter-template.css" rel="stylesheet">
+  <link href="./dist/css/folha.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#"># Jogo da Velha</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#escolhajogador">Jogadores</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Opções</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" data-toggle="modal" data-target="#escolhajogador">Jogadores</a>
+            <a class="dropdown-item" href="#" onclick="iniciar()">Começar</a>
+            <a class="dropdown-item" href="#" onclick="reiniciar()">Reiniciar</a>
+
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <main role="main" class="container">
+    <div class="container">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#escolhajogador">
+        Jogadores
+      </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" onclick="iniciar()">
+        Começar
+      </button>
+
+      <div class="row">
+        <div class="col menu">
+
+          <div class="row submenu d-flex align-items-end ">
+            <span>Jogador:</span>&nbsp
+            <Span id="nickMenu1"></Span>
+          </div>
+          <div class="row submenu d-flex ">
+            <label>Simbolo:</label>&nbsp
+            <Span id="simboloMenu1"></Span>
+          </div>
+
+          <div class="row submenu d-flex ">
+            <label for="">Vitórias:</label>&nbsp
+            <Span id="placarMenu1"></Span>
+          </div>
+          <div id="vezMenu1div" class="row rounded submenu d-flex align-items-center justify-content-center">
+
+            <Span id="vezMenu1"></Span>
+          </div>
+
+        </div>
+
+        <div class="col-6 tabuleiro">
+          <div class="row linha">
+            <div class="col border-right border-dark celula d-flex align-items-center justify-content-center" id="1">
+            </div>
+            <div class="col border-right border-dark celula d-flex align-items-center justify-content-center" id="2">
+            </div>
+            <div class="col celula d-flex align-items-center justify-content-center" id="3"></div>
+          </div>
+          <div class="row linha">
+            <div
+              class="col border-right border-bottom border-top border-dark celula d-flex align-items-center justify-content-center"
+              id="4"></div>
+            <div
+              class="col border-right border-bottom border-top border-dark celula d-flex align-items-center justify-content-center"
+              id="5"><span class="simolos"></span> </div>
+            <div
+              class="col border-bottom border-top border-dark celula d-flex align-items-center justify-content-center"
+              id="6"></div>
+          </div>
+          <div class="row linha">
+            <div class="col border-right border-dark celula d-flex align-items-center justify-content-center" id="7">
+            </div>
+            <div class="col border-right border-dark celula d-flex align-items-center justify-content-center" id="8">
+            </div>
+            <div class="col celula d-flex align-items-center justify-content-center" id="9"></div>
+          </div>
+        </div>
+
+        <div class="col menu">
+
+          <div class="row submenu d-flex align-items-end">
+            <span>Jogador:</span>&nbsp
+            <Span id="nickMenu2"></Span>
+          </div>
+          <div class="row submenu d-flex ">
+            <span>Simbolo:</span>&nbsp
+            <Span id="simboloMenu2"></Span>
+          </div>
+
+          <div class="row submenu d-flex ">
+            <label>Vitórias: </label>&nbsp
+            <Span id="placarMenu2"></Span>
+          </div>
+          <div id="vezMenu2div" class="row  submenu d-flex align-items-center justify-content-center rounded">
+            <span id="vezMenu2"></Span>
+          </div>
+        </div>
+      </div>
+      <div id="submenuVelhasdiv" class="row submenu  d-flex align-items-end align-items-center justify-content-center">
+        <span id="submenuVelhas"></span>
+
+      </div>
+    </div>
+
+
+    <!-- modais -->
+
+    <!-- Modal -->
+    <!-- Inclusao de jogadores -->
+    <div class="modal fade" id="escolhajogador" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content container">
+          <div class="modal-header ">
+            <h5 class="modal-title" id="TituloModalCentralizado">Escolha seu Jogador</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <!-- <form class="form-group"> -->
+              <div class="col-4 container">
+                <div class="row "> JOGADOR 1
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Nick:</span>
+                    </div>
+                    <input size="14" maxlength="10" value="Serena" type="text" class="form-control" placeholder="Nick"
+                      aria-label="Nick" aria-describedby="basic-addon1" id="nick1" name="nick1">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Simolo:</span>
+                    </div>
+                    <input size="14" value="X" type="text" class="form-control" placeholder="" aria-label=""
+                      aria-describedby="basic-addon1" id="simbolo1" name="simbolo1">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="btcorJ1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cor
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btcor">
+                      <a class="dropdown-item" href="#" style="background: chartreuse;" onclick="escolhaCor('chartreuse','btcorJ1')">Chartreuse</a>
+                      <a class="dropdown-item" href="#" style="background: chocolate;"  onclick="escolhaCor('chocolate','btcorJ1')">Chocolate</a>
+                      <a class="dropdown-item" href="#" style="background: cyan;"       onclick="escolhaCor('cyan','btcorJ1')">Cyan</a>
+                      <a class="dropdown-item" href="#" style="background: darkmagenta;"       onclick="escolhaCor('darkmagenta','btcorJ1')">Darkmagenta</a>
+                      <a class="dropdown-item" href="#" style="background: deeppink;"       onclick="escolhaCor('deeppink','btcorJ1')">Deeppink</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row">
+                  <select class="custom-select" id="multiplayer">
+                    <option value="computador">Escolher...</option>
+                    <option value='multiplayer'>Multiplayers</option>
+                    <option value="computador">Computador</option>
+
+                  </select>
+                </div>
+                <div class="row">
+                  <select class="custom-select" id="nivel">
+                    <option value='0'>Níveis</option>
+                    <option value='1'>Fácil</option>
+                    <option value='2'>Difícil</option>
+
+                  </select>
+                </div>
+
+              </div>
+              <div class="col-4 container">
+                <div class="row">JOGADOR 2
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Nick:</span>
+                    </div>
+                    <input size="14" maxlength="10" value="Anne" type="text" class="form-control" placeholder="Nick2"
+                      aria-label="Nick2" aria-describedby="basic-addon1" id="nick2" name="nick2">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Simolo:</span>
+                    </div>
+                    <input value="O" type="text" class="form-control" placeholder="" aria-label=""
+                      aria-describedby="basic-addon1" id="simbolo2" name="simbolo2">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="btcorJ2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cor
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btcor2">
+                      <a class="dropdown-item" href="#" style="background: chartreuse;" onclick="escolhaCor('chartreuse','btcorJ2')">Chartreuse</a>
+                      <a class="dropdown-item" href="#" style="background: chocolate;"  onclick="escolhaCor('chocolate','btcorJ2')">Chocolate</a>
+                      <a class="dropdown-item" href="#" style="background: cyan;"       onclick="escolhaCor('cyan','btcorJ2')">Cyan</a>
+                      <a class="dropdown-item" href="#" style="background: darkmagenta;"       onclick="escolhaCor('darkmagenta','btcorJ2')">Darkmagenta</a>
+                      <a class="dropdown-item" href="#" style="background: deeppink;"       onclick="escolhaCor('deeppink','btcorJ2')">Deeppink</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </form> -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="salvar()">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Final de Partida -->
+    <!-- Modal -->
+    <div class="modal fade" id="painelVitoria" tabindex="-1" role="dialog" aria-labelledby="painelVitoria"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="TituloModalCentralizado">Partida finalizada</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h1><span id='vitorianick'></span></h1>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="iniciar()">Nova
+              Partida</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              onclick="reiniciar()">Reiniciar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <details>
+    <summary>Copyright 1999-2018.</summary>
+    <p> - by Refsnes Data. All Rights Reserved.</p>
+    <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+  </details> -->
+  </main><!-- /.container -->
+  <!-- Bootstrap core JavaScript
+        ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="./dist/js/jquery.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="./dist/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="./dist/assets/js/vendor/popper.min.js"></script>
+  <script src="./dist/js/bootstrap.min.js"></script>
+  <script src="./Jogador.js"></script>
+  <script src="./game.js"></script>
+</body>
+
+</html>
